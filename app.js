@@ -5,6 +5,8 @@ const socketio = require('socket.io')
 const { userjs, addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
 
 
+const port = process.env.PORT || 3000
+
 const io = socketio(server)
 app.use(express.static(__dirname + '/public'))
 
@@ -58,9 +60,9 @@ io.on('connection', (socket)=>{
     })
 })
 
-server.listen(3000, (error)=>{
+server.listen(port, (error)=>{
     if(error)
     console.log(error)
     else
-    console.log('Server running on port 3000')
+    console.log(`Server running on port ${port}`)
 })
