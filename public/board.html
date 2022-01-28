@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhiteBoard</title>
+  <link rel="icon" href="./img/board.jpg">
+  <link rel="stylesheet" href="./css/stylesboard.css">
+</head>
+
+<body style="background-color: azure">
+  <canvas id="canvas" style="border: 2px solid azure; background-color: azure;">Canvas not supported by your browser
+  </canvas>
+  <div style=" width:800px; margin:0px 436px; padding: 10px;position: fixed; top: 0px;height: 50px;">
+    <div style="float: left; height: 50px;">
+      <div style="padding:10px">
+        <label for="favcolor" style="color: rgb(17, 150, 150);">Select your favorite color:</label>
+        <input type="color" id="favcolor" name="favcolor" value="#000000" oninput="changeColor(value)">
+      </div>
+    </div>
+    <div style='height: 50px; width: 50px; margin: 0px 10px; float: left;'
+      onclick="changeColor('azure')"><img src="img/eraser.jpg" height="100%" , width="100%"></div>
+
+    <div style="float: left; height: 50px;">
+      <div style="padding:15px 10px 10px 10px">
+        <input type="range" max="20" min="1" id="Slider" value="3" oninput="changeWidth(value)">
+      </div>
+    </div>
+  </div>
+
+  <!-- audio chat-->
+  <div class="user-btn">
+    <img src="img/user.png" height="50px", width="50px">
+  </div>
+  <div class="users">
+    <div class="brand">
+      <h1>Users</h1>
+    </div>
+    <div class="user__area"></div>
+  </div>
+
+  <div class="audiobutton speaker" >
+    <img id="speakeron" src="img/speakeron.png" height="40px", width="40px" style="display: block;">
+    <img id="speakeroff" src="img/speakeroff.png" height="40px", width="40px" style="display: none;">
+  </div>
+
+  <div class="audiobutton mic">
+    <img id="micon" src="img/micon.png" height="40px", width="40px" style="display: none;">
+    <img id="micoff" src="img/micoff.png" height="40px", width="40px" style="display: block;">
+  </div>
+
+  <button class="open-button">Chat</button>
+
+  <div class="chat-popup" id="myForm">
+
+    <section class="chat__section">
+      <div class="brand">
+          <img height="40" src="img/chat.png" alt="">
+          <h1>CHAT</h1>
+      </div>
+      <div class="message__area"></div>
+      <div>
+          <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+      </div>
+      <button type="button" class="btn btn-cancel">Close</button>
+    </section>
+
+  </div>
+  
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+
+</body>
+
+</html>
